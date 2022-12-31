@@ -34,11 +34,11 @@ mongoose.connect(process.env.DATABASE_URL, {
 const employees = require('./controllers/employees')
 app.use('/api/employees', employees)
 
-// // set the static path to the public folder; direct all http requests to index.html
-// app.use(express.static(__dirname + '/public'))
-// app.get('*', (req, res) => {
-//     res.sendFile(__dirname + '/public/index.html')
-// })
+// set the static path to the public folder; direct all http requests to index.html
+app.use(express.static(__dirname + '/public'))
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html')
+})
 
 // start express web server & make public
 // make port dynamic in case host already uses 3000
